@@ -1,12 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset
 
 umask 077
 
-cd /etc/nginx/session_ticket_keys
+mkdir -p /etc/nginx/session_ticket_keys
+mount -t ramfs -o mode=700 ramfs /etc/nginx/session_ticket_keys
 
-openssl rand -out 1.key 80
-openssl rand -out 2.key 80
-openssl rand -out 3.key 80
-openssl rand -out 4.key 80
+for i in 1 2 3 4; do
+	dd ibs=1 obs=1 count='80' 2>/dev/null </dev/urandom >"/etc/nginx/session_ticket_keys/$i.key"
+done

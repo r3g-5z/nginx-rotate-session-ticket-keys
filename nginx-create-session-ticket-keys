@@ -4,9 +4,6 @@ set -o errexit -o nounset
 
 umask 077
 
-mkdir -p /etc/nginx/session_ticket_keys
-mount -t ramfs -o mode=700 ramfs /etc/nginx/session_ticket_keys
-
 for i in 1 2 3 4; do
 	# use /dev/random instead of urandom in case urandom hasn't been seeded
 	# on modern kernels it is good enough for our purposes

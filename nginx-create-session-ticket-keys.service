@@ -16,7 +16,8 @@ PrivateTmp=true
 PrivateUsers=true
 
 # limit privs
-CapabilityBoundingSet=
+RestrictAddressFamilies=none
+CapabilityBoundingSet=CAP_SYS_ADMIN
 LockPersonality=true
 MemoryDenyWriteExecute=true
 NoNewPrivileges=true

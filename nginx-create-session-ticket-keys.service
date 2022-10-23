@@ -53,3 +53,6 @@ UMask=0077
 SystemCallArchitectures=native
 SystemCallFilter=@system-service
 SystemCallFilter=~@clock @debug @module @mount @reboot @swap @resources @cpu-emulation @obsolete @raw-io @obsolete @keyring @privileged
+
+[Install]
+WantedBy=multi-user.target
